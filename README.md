@@ -6,6 +6,13 @@ git clone https://github.com/Santiscano/proyecto-integrador-cesde.git
 
 git cd proyecto-integrador-cesde
 code .
+
+git checkout -b <nombre-de-la-rama>
+```
+
+### crear su propia rama de desarrollo
+```
+git 
 ```
 
 ### crear archivo .env
