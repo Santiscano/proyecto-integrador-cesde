@@ -7,4 +7,5 @@ export interface Response {
   firebase?: {error: boolean, data: any};
   path?: Data;
   token?: string;
+  others?: any[];
 }

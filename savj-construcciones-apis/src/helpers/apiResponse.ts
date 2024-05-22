@@ -12,18 +12,16 @@ class ApiResponses {
    * Genera una respuesta exitosa.
    * @param data Datos a incluir en la respuesta.
    * @param message Mensaje de la respuesta.
-   * @param firebase Objeto Firebase opcional.
-   * @param path Datos de la ruta opcional.
+   * @param others array
    * @returns Objeto de respuesta con formato estándar.
    */
   static success(
     data?: Data | any,
     message?: string,
-    firebase?: { error: boolean; data: any },
-    path?: Data
+    others?: any[]
   ): Response {
     message === undefined ? message = 'SUCCESS' : message;
-    return { message, data, firebase, path }
+    return { message, data, ...others }
   }
 
   /**

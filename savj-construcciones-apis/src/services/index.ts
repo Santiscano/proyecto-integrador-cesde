@@ -48,7 +48,6 @@ export class Server implements ServerInterface{
     this.app.use(cors());
     this.app.use(morgan("dev"));
     this.app.use(express.json());
-
     
     this.app.use((req:Request, res:Response, next: NextFunction) => Logs.customLogger(req, res, next, "6m"))
     this.app.use(bodyParser.urlencoded({ limit: 'Infinity', extended: true }));
