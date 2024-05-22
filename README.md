@@ -1,5 +1,12 @@
 # proyecto-integrador-cesde
 
+### clonar repositorio
+```txt
+git clone https://github.com/Santiscano/proyecto-integrador-cesde.git
+
+git cd proyecto-integrador-cesde
+code .
+```
 
 ### crear archivo .env
 ```txt
