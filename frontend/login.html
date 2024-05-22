@@ -11,14 +11,14 @@
         <h1>INGRESAR</h1>
         <form class="w-50">
             <div class="form-group">
-                <label for="exampleInputEmail1">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
             </div>
             <div class="form-group">
-                <label for="exampleInputPassword1">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Password">
             </div>
-            <button type="submit" class="btn btn-primary mt-3">Enviar</button>
+            <button type="submit" class="btn btn-primary mt-3" id="enviar">Enviar</button>
         </form>
         <p>No tienes cuenta?, <a href="./register.html" class="bg-blue cursor-pointer">Registrate</a></p>
     </main>
@@ -30,11 +30,11 @@
             event.preventDefault(); // Prevent form submission
 
             // Get the values from the input fields
-            var email = document.getElementById('exampleInputEmail1').value;
-            var password = document.getElementById('exampleInputPassword1').value;
+            let email = document.getElementById('email').value;
+            let password = document.getElementById('password').value;
 
             // Create an object with the data to send to the API
-            var data = {
+            let data = {
                 email: email,
                 password: password,
                 method: 'email'
