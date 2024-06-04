@@ -9,6 +9,7 @@
 nav a{
    padding-top: 20px; 
 }
+
 .menu{
     font-family: muli-bold;
     font-weight: bold;
@@ -20,6 +21,8 @@ nav a{
     border-width: 2px;
     border-style: solid;
     border-color: #000000;
+    position: fixed;
+    width: 100%;
 }
 .menu a{
     font-size: 17px;
@@ -50,7 +53,10 @@ nav a{
     height: 200px;
     display: inline-block;
     padding-left: 20px;
-    padding-top: 20px;
+    padding-top: 5%;
+    text-decoration: none;
+    justify-content: space-between;
+    position: fixed;
 }
 .contenidouno{
     width: 65%;
@@ -58,13 +64,10 @@ nav a{
     display: inline-block;
     position: absolute;
     padding-left: 30px;
-    padding-top: 20px;
-    margin-left: 50px;
+    padding-top: 5%;
+    margin-left: 20%;
 }
-.opciones{
-    text-decoration: none;
-    justify-content: space-between;
-}
+
 body{
     background-image: url(/frontend/img/fondo.jpg);
     background-repeat: no-repeat;
@@ -189,4 +192,18 @@ h3{
 }
 i{
     color: #000000;
+}
+.texticon{
+    display: flex;
+    padding-top: 10px;
+    margin-right: 6%;
+    margin-left: 8px;
+}
+.icon{
+    border-left: 3px solid black;
+    padding-left: 3.5rem;
+}
+.iconos1{
+    display: flex;
+    padding-top: 2rem;
 }
