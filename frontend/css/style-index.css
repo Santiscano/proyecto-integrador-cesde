@@ -1,7 +1,35 @@
-* {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+*{
+    padding: 0;
+    margin: 0;
+}
+#mini-logo{
+    width: 92px;
+    height: 64px;
+}
+nav a{
+   padding-top: 20px; 
+}
+.menu{
+    font-family: muli-bold;
+    font-weight: bold;
+    text-align: center;
+    background-color: #414040;
+    height: 64px;
+    display: flex;
+    justify-content: space-between;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #000000;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+.menu a{
+    font-size: 17px;
+    color: rgb(255, 253, 253);
+}
+.menu a:hover{
+    text-decoration: none;
 }
 body {
     font-family: muli-regular;
@@ -205,22 +233,13 @@ img{
     width: 700px;
     height: 200px;
 }
-.menu{
-    text-align: center;
-    background-color: #414040;
-    height: 30px;
-    display: flex;
-    justify-content: space-between;
-    border-width: 2px;
-    border-style: solid;
-    border-color: #090606;
-}
+
 a{
     font-size: 20px;
     color: rgb(255, 253, 253);
 }
 body{
-    background-image: url(/imagenes/fondo1.jpg);
+    background-image: url(/frontend/img/fondo.jpg);
     background-repeat: no-repeat;
     background-position: center center; 
     background-size: cover;
@@ -249,7 +268,7 @@ body{
     position: absolute;
 }
 #LetraProyectos{
-    font-size: 60px;
+    font-size: 40px;
     font-family: "Bungee", sans-serif;
     font-weight: 00;
     font-style: normal;
