@@ -23,6 +23,7 @@ nav a{
     border-color: #000000;
     position: fixed;
     width: 100%;
+    z-index: 1;
 }
 .menu a{
     font-size: 17px;
