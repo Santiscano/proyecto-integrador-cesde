@@ -6,10 +6,6 @@
     width: 92px;
     height: 64px;
 }
-nav a{
-   padding-top: 20px; 
-}
-
 .menu{
     font-family: muli-bold;
     font-weight: bold;
@@ -32,6 +28,79 @@ nav a{
 .menu a:hover{
     text-decoration: none;
 }
+nav a{
+   padding-top: 20px; 
+}
+
+.opciones{
+    width: 200px;
+    height: 200px;
+    display: inline-block;
+    padding-left: 20px;
+    padding-top: 5%;
+    justify-content: space-between;
+    position: fixed;
+}
+.opciones a{
+    text-decoration: none;
+}
+
+.contenidouno{
+    width: 65%;
+    height: auto;
+    display: inline-block;
+    padding-left: 30px;
+    padding-top: 5%;
+    margin-left: 20%;   
+}
+.contenidoPrincipal{
+    display: grid;
+    place-items: center;
+    margin: auto;
+}
+.contenedorsubt{
+    display: flex;
+    background-color: #dee2e66b;
+    border-radius: 30px;
+    height: 200px;
+}
+.logo{
+    width: 200px;
+    height: 200px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    border-radius: 30px;
+}
+.subtitulo{
+    padding-top: 10px;
+    height: 48px;
+    width: 33%;
+    padding-left: 15px;
+    padding-bottom: 9px;
+    border-radius: 20px;
+}
+#nombre{
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: 800;
+    padding-top: 60px;
+}
+.linea-vertical{
+    height: 27vh;
+    width: 3px;
+    background-color: rgba(65, 65, 65, 0.637);
+    margin-top: 12px;
+}
+.precio p{
+    font-family: muli-bold;
+    font-weight: 500;
+    padding: 70px 0px 2px 30px;
+}
+.precio h3{
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: 800;
+    padding: 0px 0px 0px 30px;
+}
+
 .Luna{
     text-align: center;
     font-family: muli-bold;
@@ -41,36 +110,13 @@ nav a{
     height: 30px;
     border-bottom: 2px;  
 }
-.logo{
-    width: 200px;
-    height: 200px;
-    margin-right: 20px;
-    margin-bottom: 10px;
-    border-radius: 30px;
-}
 
-.opciones{
-    width: 200px;
-    height: 200px;
-    display: inline-block;
-    padding-left: 20px;
-    padding-top: 5%;
-    text-decoration: none;
-    justify-content: space-between;
-    position: fixed;
-}
-.contenidouno{
-    width: 65%;
-    height: auto;
-    display: inline-block;
-    padding-left: 30px;
-    padding-top: 5%;
-    margin-left: 20%;
-    
-}
+
+
+
 
 body{
-    background-image: url(/frontend/img/fondo-gris.jpg);
+    background-image: url(/frontend/img/fondo.jpg);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -111,46 +157,10 @@ h3{
     color: rgb(0, 0, 0);
     font-size: 20px;
 }
-.contenedorsubt{
-    display: flex;
-    background-color: #dee2e66b;
-    border-radius: 30px;
-    height: 200px;
-}
-.contenidoPrincipal{
-    display: grid;
-    place-items: center;
-    margin: auto;
-}
-.subtitulo{
-    padding-top: 10px;
-    height: 48px;
-    width: 33%;
-    padding-left: 15px;
-    padding-bottom: 9px;
-    border-radius: 20px;
-}
-#nombre{
-    font-family:Arial, Helvetica, sans-serif;
-    font-weight: 800;
-    padding-top: 60px;
-}
-.linea-vertical{
-    height: 27vh;
-    width: 3px;
-    background-color: rgba(65, 65, 65, 0.637);
-    margin-top: 12px;
-}
-.precio p{
-    font-family: muli-bold;
-    font-weight: 500;
-    padding: 70px 0px 2px 30px;
-}
-.precio h3{
-    font-family:Arial, Helvetica, sans-serif;
-    font-weight: 800;
-    padding: 0px 0px 0px 30px;
-}
+
+
+
+
 .descripcion{
     background-color: #dee2e66b;
     padding: 15px 15px 15px 15px;
