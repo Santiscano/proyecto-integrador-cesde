@@ -3,42 +3,164 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="css/style_orion.css">
+    <script src="https://kit.fontawesome.com/887a835504.js" crossorigin="anonymous"> </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Proyecto Orion</title>
 </head>
 <body>
     <header>
-    <h1 class="Luna">Apartamentos Orion</h1>
-</header>
-<nav>
-    <a href="">Inicio  /</a>
-    <a href="">Apartamentos</a>
-</nav><br><br><br>
-<footer class="logofooter">
-    <img class="logofooter" src="img/logo orion dos.png" alt="">
-    </footer><br>
-    <p>Proyecto Orion</p>
-    <p>Apartamentos en venta Envigado</p>
-<div>   
-<nav id="botones">
-    <a href="#descripcion" class="boton">Descripción</a><br><br>
-    <a href="#plano" class="boton">Planos</a><br><br>
-    <a href="#mapa" class="boton">Ubicación</a>    
-</nav>
-</div><br>
-<img class="imguno" src="img/envigado.jpg" alt="">
-<h2 id="descripcion">Descripción</h2>
-<p>Aquí comienza tu nueva historia, un lugar rodeado de naturaleza con un gran sendero ecológico donde tú y tu familia podrán vivir momentos inolvidables. Apartamentos de 54 m2 de 3 alcobas, balcón, sala comedor, cocina y baños. facilidad en nuestra forma de pago 30% inicial - 70% crédito *Aplica subsidio Vis, valor proyectado se ajustará a 150 SMMLV de 2025.
+        <nav class="menu">
+            <img id="mini-logo" src="img/mini-logo.jpeg" alt="logoSAVJ">
+            <a href="/frontend/index.html">INICIO</a>
+            <a href="./login.html">PROPIETARIOS</a>
+            <a href="link">TU ESPACIO</a>
+            <a href="link">CONTACTO</a>
+            <a href="link">COLABORADORES</a>
+        </nav>
+    </header><br><br><br>
     
-    Construye: Constructora S.J.A.V.
+    <main> 
+        <section class="opciones"> 
+            <nav id="botones">
+                <a href="#consubt" class="boton1">Descripción</a><br><br>
+                <a href="#iconos2" class="boton2">Planos</a><br><br>
+                <a href="#plano" class="boton3">Ubicación</a>    
+            </nav>
+        </section>
     
-    Gerencia, Diseña y Vende: S.J.A.V S.A.S</p><br>
-    <h2 id="plano">Planos</h2>
-    <img src="img/plano uno.jpg" alt="">
-    <img src="img/plano dos.jpg" alt="">
-    <img src="img/plano tres.jpg" alt=""><br><br><br>
-    
-    <h2 id="mapa">Ubicación</h2>
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31733.878139887765!2d-75.58500820478513!3d6.166262481817167!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e4682493b86ae61%3A0xe3a1b3e88840ab4!2sEnvigado%2C%20Antioquia!5e0!3m2!1ses-419!2sco!4v1714695795457!5m2!1ses-419!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>" 
+        <section class="contenidouno">
+            <div id="contenidoPrincipal">
+                <div class="contenedorsubt" id="consubt">
+                    <img class="logo" src="img/logo-orion-dos.png" alt="NSV">
+                    <div class="subtitulo">
+                        <h3 id="nombre">Proyecto ORION</h3>
+                        <h3>Apartamento en venta en Envigado</h3><br>
+                    </div>
+
+                    <div class="linea-vertical"></div>
+                    <div class="precio">
+                        <p>Desde:</p>
+                        <h3>$255.000.000</h3>
+                    </div>
+                </div>
+
+    <hr><br><br>
+
+        <div id="conteItemsCarrusel">
+            <div class="itemCarrusel" id="itemcarrusel-1">
+                <div class="tarjetaCarrusel" id="tarjetacarrusel">
+                    <img src="img/foto-uno-orion.jpg" alt="FOTO1" height="100%" >
+                </div>
+                <div class="flechasCarrusel">
+                    <a href="#itemcarrusel-2">
+                        <i class="fas fa-chevron-left"></i>
+                    </a>
+                    <a href="#itemcarrusel-2">
+                        <i class="fas fa-chevron-right"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="itemCarrusel" id="itemcarrusel-2">
+                <div class="tarjetaCarrusel" id="tarjetacarrusel">
+                    <img src="img/foto-dos-orion.jpg" alt="FOTO2" height="100%">
+                </div>
+                <div class="flechasCarrusel">
+                    <a href="#itemcarrusel-1">
+                        <i class="fas fa-chevron-left"></i>
+                    </a>
+                    <a href="#itemcarrusel-1">
+                        <i class="fas fa-chevron-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="iconos1">
+        <div>
+            <i class='fas fa-ruler' style='font-size:36px'></i>
+        </div>
+        <div class="texticon"><p>30.68m<sup>2</sup></p></div>
+        <div class="icon">
+            <i class='fas fa-ruler' style='font-size:36px'></i>
+        </div>
+        <div class="texticon"><p>27.86m<sup>2</sup></p></div>
+        <div class="icon">
+            <i class='fas fa-bed' style='font-size:36px'></i>
+        </div>
+        <div class="texticon"><p>1</p></div>
+        <div class="icon">
+            <i class='fas fa-shower' style='font-size:36px'></i>
+        </div>
+        <div class="texticon"><p>1</p></div>
+        <div class="icon">
+            <i class='fas fa-home' style='font-size:36px'></i>
+        </div>
+        <div class="texticon"><p>Comunal</p></div>
+        </div>
+
+    <br><br><hr>
+
+    <div class="descripcion">
+        <br><h2>Descripción</h2><br>
+        <br><p id="descripcion">*Espacio para una tercera habitación o estudio.
+
+            Explora una experiencia única en Mosquera, donde la proximidad marca la diferencia. Aquí, tendrás acceso a todo lo que requieres. Amplias áreas comunes rodeadas de un entorno natural te brindarán momentos inolvidables en compañía de tu familia.
+            Este entorno combina lo urbano con la tranquilidad, ofreciendo una amplia gama de servicios y comodidades para una vida plena.
+            El diseño sofisticado y la proyección de alta valorización hacen de este lugar una elección excepcional.
+            <br>
+            Los render, diagramas, planos, fotos, imágenes, diseños, dimensiones, distribución, áreas y medidas, espacios, acabados, elementos decorativos, perspectivas del proyecto, entre otros, son estrictamente representaciones artísticas de un proyecto en desarrollo por lo cual puede variar en su percepción y construcción final son propuestas de los desarrolladores y estos se reservan el derecho de modificar, revisar, o retirar cualquiera de ellos a su discreción y sin previo aviso, y por lo tanto no configura ningún tipo de compromiso contractual por parte del promotor o constructor. El material sólo debe tomarse como una representación del diseño final.
+            
+            *Material sujeto a cambios sin previo aviso.</p><br>
+    </div>
+    <div>
+        <h2>Más caracteristicas del inmueble</h2>
+        <div class="iconos2" id="iconos2">
+        <div>
+            <i class='fas fa-fire' style='font-size:36px'></i>
+        </div>
+        <div class="texticon2"><p>Calentador</p></div>
+        <div class="icon2">
+            <i class='fas fa-utensils' style='font-size:36px'></i>
+        </div>
+        <div class="texticon2"><p>Cocina integral</p></div>
+        <div class="icon2">
+            <i class='fas fa-couch' style='font-size:36px'></i>
+        </div>
+        <div class="texticon2"><p>Sala/comedor:  <br>
+            Integrado
+        </p></div>
+        <div class="icon2">
+            <i class='fas fa-fire-alt' style='font-size:36px'></i>
+        </div>
+        <div class="texticon2"><p>Servicio gas natural
+        </p></div>
+    </div>
+    <div class="iconos3">
+        <div>
+            <i class='fas fa-key' style='font-size:36px'></i>
+        </div>
+        <div class="texticon3"><p>Fecha entrega: <br> 
+            3T - 2025
+        </p></div>
+        <div class="icon3">
+            <i class='fas fa-fire-alt' style='font-size:36px'></i></i>
+        </div>
+        <div class="texticon3"><p>Tipo calentador de agua: <br>
+            Electrico
+        </p></div>
+    </div>
+    <br><br>
+        <hr>
+        <br><h2>Planos</h2>
+        <br><img src="img/plano-orion.jpg" alt="" id="plano"><br><br>
+        <hr>
+        
+        <br><h2 id="mapa">Ubicación</h2><br>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31733.86539762072!2d-75.6025179848665!3d6.166475422219739!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e4682493b86ae61%3A0xe3a1b3e88840ab4!2sEnvigado%2C%20Antioquia!5e0!3m2!1ses-419!2sco!4v1717624802510!5m2!1ses-419!2sco" width="878" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <br><br>
+        </div>
+    </section>
+    </main>
 </body>
 </html>
