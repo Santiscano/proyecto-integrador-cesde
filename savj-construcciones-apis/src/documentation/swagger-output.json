@@ -37,25 +37,6 @@
           "auth"
         ],
         "description": "Endpoint to sign in a specific user",
-        "parameters": [
-          {
-            "name": "api_key",
-            "in": "header",
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "methodSign": {
-                  "example": "any"
-                }
-              }
-            }
-          }
-        ],
         "responses": {
           "default": {
             "description": ""
@@ -69,13 +50,16 @@
           "auth"
         ],
         "description": "Endpoint to sign in a specific user",
-        "parameters": [
-          {
-            "name": "api_key",
-            "in": "header",
-            "type": "string"
+        "responses": {
+          "default": {
+            "description": ""
           }
-        ],
+        }
+      }
+    },
+    "/api/v1/roles/": {
+      "get": {
+        "description": "",
         "responses": {
           "200": {
             "description": "OK"
@@ -83,180 +67,635 @@
         }
       }
     },
-    "/api/v1/example/": {
+    "/api/v1/apartaments/{id}": {
       "get": {
         "tags": [
-          "example"
+          "apartaments"
         ],
-        "description": "Estoy testiando con este para ver los parametros y respuestas",
-        "parameters": [
-          {
-            "name": "api_key",
-            "in": "header",
-            "type": "string"
-          },
-          {
-            "name": "authorization",
-            "in": "header",
-            "type": "string"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "description": "Add new user.",
-            "schema": {
-              "$ref": "#/definitions/example"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "202": {
-            "description": "Get a specific user.",
-            "schema": {
-              "$ref": "#/definitions/example"
-            }
-          }
-        }
-      }
-    },
-    "/api/v1/example/count": {
-      "get": {
-        "tags": [
-          "example"
-        ],
-        "description": "Endpoint to sign in a specific user",
-        "parameters": [
-          {
-            "name": "api_key",
-            "in": "header",
-            "type": "string"
-          },
-          {
-            "name": "authorization",
-            "in": "header",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/v1/example/tasks": {
-      "post": {
-        "tags": [
-          "example"
-        ],
-        "description": "Endpoint to sign in a specific user",
-        "parameters": [
-          {
-            "name": "api_key",
-            "in": "header",
-            "type": "string"
-          },
-          {
-            "name": "authorization",
-            "in": "header",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/v1/example/tasks/{id}": {
-      "get": {
-        "tags": [
-          "example"
-        ],
-        "description": "Endpoint to sign in a specific user",
+        "description": "trae el/la apartaments segun id",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
-          },
-          {
-            "name": "api_key",
-            "in": "header",
-            "type": "string"
-          },
-          {
-            "name": "authorization",
-            "in": "header",
-            "type": "string"
+            "type": "string",
+            "description": "id de apartaments a buscar"
           }
         ],
         "responses": {
           "200": {
-            "description": "OK"
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "example"
-        ],
-        "description": "Endpoint to sign in a specific user",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
+            "description": "Response success",
+            "schema": {
+              "$ref": "#/definitions/apartamentsRes"
+            }
           },
-          {
-            "name": "api_key",
-            "in": "header",
-            "type": "string"
+          "400": {
+            "description": "noContent",
+            "schema": {
+              "$ref": "#/definitions/errorMessage"
+            }
           },
-          {
-            "name": "authorization",
-            "in": "header",
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
+          "500": {
+            "description": "Error server",
+            "schema": {
+              "$ref": "#/definitions/unsuccessfully"
+            }
           }
         }
       },
       "put": {
         "tags": [
-          "example"
+          "apartaments"
         ],
-        "description": "Endpoint to sign in a specific user",
+        "description": "actualiza toda la informacion de un apartaments segun body",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "description": "id de apartaments a modificar"
           },
           {
-            "name": "api_key",
-            "in": "header",
-            "type": "string"
-          },
-          {
-            "name": "authorization",
-            "in": "header",
-            "type": "string"
+            "name": "body",
+            "in": "body",
+            "description": "todos los datos necesarios para modificar un@ apartaments",
+            "schema": {
+              "$ref": "#/definitions/apartaments"
+            }
           }
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Response success",
+            "schema": {
+              "$ref": "#/definitions/apartamentsRes"
+            }
+          },
+          "400": {
+            "description": "UnCompleted",
+            "schema": {
+              "$ref": "#/definitions/errorMessage"
+            }
+          },
+          "422": {
+            "description": "UnCompleted",
+            "schema": {
+              "$ref": "#/definitions/errorMessage"
+            }
+          },
+          "500": {
+            "description": "Error server",
+            "schema": {
+              "$ref": "#/definitions/unsuccessfully"
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "apartaments"
+        ],
+        "description": "actualiza la informacion de un apartaments segun lo que reciba en el body",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "id de apartaments a modificar"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "todos los datos posibles para modificar un@ apartaments",
+            "schema": {
+              "$ref": "#/definitions/apartaments"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response success",
+            "schema": {
+              "$ref": "#/definitions/apartamentsRes"
+            }
+          },
+          "400": {
+            "description": "UnCompleted",
+            "schema": {
+              "$ref": "#/definitions/errorMessage"
+            }
+          },
+          "422": {
+            "description": "UnCompleted",
+            "schema": {
+              "$ref": "#/definitions/errorMessage"
+            }
+          },
+          "500": {
+            "description": "Error server",
+            "schema": {
+              "$ref": "#/definitions/unsuccessfully"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "apartaments"
+        ],
+        "description": "elimina el/la apartaments con el id que llega por parametros",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "id de apartaments a eliminar"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response success",
+            "schema": {
+              "$ref": "#/definitions/apartamentsRes"
+            }
+          },
+          "500": {
+            "description": "Error server",
+            "schema": {
+              "$ref": "#/definitions/unsuccessfully"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/apartaments/count": {
+      "get": {
+        "tags": [
+          "apartaments"
+        ],
+        "description": "cuenta tod@s l@s apartaments",
+        "responses": {
+          "200": {
+            "description": "Response success",
+            "schema": {
+              "$ref": "#/definitions/countSuccess"
+            }
+          },
+          "400": {
+            "description": "noContent",
+            "schema": {
+              "$ref": "#/definitions/errorMessage"
+            }
+          },
+          "500": {
+            "description": "Error server",
+            "schema": {
+              "$ref": "#/definitions/unsuccessfully"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/apartaments/create": {
+      "post": {
+        "tags": [
+          "apartaments"
+        ],
+        "description": "crea un nuevo apartaments segun el body",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "datos para crear un@ apartaments",
+            "schema": {
+              "$ref": "#/definitions/apartaments"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response success",
+            "schema": {
+              "$ref": "#/definitions/apartamentsRes"
+            }
+          },
+          "400": {
+            "description": "UnCompleted",
+            "schema": {
+              "$ref": "#/definitions/errorMessage"
+            }
+          },
+          "422": {
+            "description": "UnCompleted",
+            "schema": {
+              "$ref": "#/definitions/uncompleted"
+            }
+          },
+          "500": {
+            "description": "Error server",
+            "schema": {
+              "$ref": "#/definitions/unsuccessfully"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/apartaments/bulk": {
+      "post": {
+        "tags": [
+          "apartaments"
+        ],
+        "description": "crea uno o muchos apartaments segun el body",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "datos para crear uno o muchos apartaments",
+            "schema": {
+              "$ref": "#/definitions/apartaments"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response success",
+            "schema": {
+              "$ref": "#/definitions/bulkSuccess"
+            }
+          },
+          "400": {
+            "description": "UnCompleted",
+            "schema": {
+              "$ref": "#/definitions/errorMessage"
+            }
+          },
+          "422": {
+            "description": "UnCompleted",
+            "schema": {
+              "$ref": "#/definitions/uncompleted"
+            }
+          },
+          "500": {
+            "description": "Error server",
+            "schema": {
+              "$ref": "#/definitions/unsuccessfully"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/apartaments/inserOrUpdateBulk": {
+      "post": {
+        "tags": [
+          "apartaments"
+        ],
+        "description": "crea uno o muchos apartaments segun el body",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "datos para crear o actualizar uno o muchos apartaments",
+            "schema": {
+              "$ref": "#/definitions/apartaments"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response success",
+            "schema": {
+              "$ref": "#/definitions/bulkSuccess"
+            }
+          },
+          "400": {
+            "description": "UnCompleted",
+            "schema": {
+              "$ref": "#/definitions/errorMessage"
+            }
+          },
+          "422": {
+            "description": "UnCompleted",
+            "schema": {
+              "$ref": "#/definitions/uncompleted"
+            }
+          },
+          "500": {
+            "description": "Error server",
+            "schema": {
+              "$ref": "#/definitions/unsuccessfully"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/created/constructoras": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "Response success",
+            "schema": {
+              "$ref": "#/definitions/success"
+            }
+          },
+          "400": {
+            "description": "UnCompleted",
+            "schema": {
+              "$ref": "#/definitions/errorMessage"
+            }
+          },
+          "422": {
+            "description": "UnCompleted",
+            "schema": {
+              "$ref": "#/definitions/errorMessage"
+            }
+          },
+          "500": {
+            "description": "Error server",
+            "schema": {
+              "$ref": "#/definitions/unsuccessfully"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/created/constructora": {
+      "post": {
+        "tags": [
+          "created"
+        ],
+        "description": "creacion de modulos",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "datos para crear un@ modulo",
+            "schema": {
+              "$ref": "#/definitions/created"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response success",
+            "schema": {
+              "$ref": "#/definitions/createdRes"
+            }
+          },
+          "400": {
+            "description": "UnCompleted",
+            "schema": {
+              "$ref": "#/definitions/errorMessage"
+            }
+          },
+          "422": {
+            "description": "UnCompleted",
+            "schema": {
+              "$ref": "#/definitions/uncompleted"
+            }
+          },
+          "500": {
+            "description": "Error server",
+            "schema": {
+              "$ref": "#/definitions/unsuccessfully"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/created/proyectos": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "Response success",
+            "schema": {
+              "$ref": "#/definitions/success"
+            }
+          },
+          "400": {
+            "description": "UnCompleted",
+            "schema": {
+              "$ref": "#/definitions/errorMessage"
+            }
+          },
+          "422": {
+            "description": "UnCompleted",
+            "schema": {
+              "$ref": "#/definitions/errorMessage"
+            }
+          },
+          "500": {
+            "description": "Error server",
+            "schema": {
+              "$ref": "#/definitions/unsuccessfully"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/created/proyecto": {
+      "post": {
+        "tags": [
+          "created"
+        ],
+        "description": "creacion de modulos",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "datos para crear un@ modulo",
+            "schema": {
+              "$ref": "#/definitions/created"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response success",
+            "schema": {
+              "$ref": "#/definitions/createdRes"
+            }
+          },
+          "400": {
+            "description": "UnCompleted",
+            "schema": {
+              "$ref": "#/definitions/errorMessage"
+            }
+          },
+          "422": {
+            "description": "UnCompleted",
+            "schema": {
+              "$ref": "#/definitions/uncompleted"
+            }
+          },
+          "500": {
+            "description": "Error server",
+            "schema": {
+              "$ref": "#/definitions/unsuccessfully"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/created/tracking": {
+      "post": {
+        "tags": [
+          "created"
+        ],
+        "description": "creacion de modulos",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "datos para crear un@ modulo",
+            "schema": {
+              "$ref": "#/definitions/created"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response success",
+            "schema": {
+              "$ref": "#/definitions/createdRes"
+            }
+          },
+          "400": {
+            "description": "UnCompleted",
+            "schema": {
+              "$ref": "#/definitions/errorMessage"
+            }
+          },
+          "422": {
+            "description": "UnCompleted",
+            "schema": {
+              "$ref": "#/definitions/uncompleted"
+            }
+          },
+          "500": {
+            "description": "Error server",
+            "schema": {
+              "$ref": "#/definitions/unsuccessfully"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/created/users": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "Response success",
+            "schema": {
+              "$ref": "#/definitions/success"
+            }
+          },
+          "400": {
+            "description": "UnCompleted",
+            "schema": {
+              "$ref": "#/definitions/errorMessage"
+            }
+          },
+          "422": {
+            "description": "UnCompleted",
+            "schema": {
+              "$ref": "#/definitions/errorMessage"
+            }
+          },
+          "500": {
+            "description": "Error server",
+            "schema": {
+              "$ref": "#/definitions/unsuccessfully"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/created/apartamento": {
+      "get": {
+        "tags": [
+          "created"
+        ],
+        "description": "creacion de modulos",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "description": "datos para crear un@ modulo",
+            "schema": {
+              "$ref": "#/definitions/created"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Response success",
+            "schema": {
+              "$ref": "#/definitions/createdRes"
+            }
+          },
+          "400": {
+            "description": "UnCompleted",
+            "schema": {
+              "$ref": "#/definitions/errorMessage"
+            }
+          },
+          "422": {
+            "description": "UnCompleted",
+            "schema": {
+              "$ref": "#/definitions/uncompleted"
+            }
+          },
+          "500": {
+            "description": "Error server",
+            "schema": {
+              "$ref": "#/definitions/unsuccessfully"
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/created/venta": {
+      "get": {
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/v1/created/rol": {
+      "get": {
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/v1/created/cartera": {
+      "get": {
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
+          }
+        }
+      }
+    },
+    "/api/v1/created/cuota": {
+      "get": {
+        "description": "",
+        "responses": {
+          "default": {
+            "description": ""
           }
         }
       }
