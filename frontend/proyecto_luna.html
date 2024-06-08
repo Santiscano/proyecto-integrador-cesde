@@ -7,18 +7,162 @@
     <script src="https://kit.fontawesome.com/887a835504.js" crossorigin="anonymous"> </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Proyecto Luna</title>
- </head>
+
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" type="text/css" href="assets/fonts/line-icons.css">
+    <!-- Slicknav -->
+    <link rel="stylesheet" type="text/css" href="assets/css/slicknav.css">
+    <!-- Range Slider -->
+    <link rel="stylesheet" type="text/css" href="assets/css/ion.rangeSlider.css">
+    <!-- Range Slider  -->
+    <link rel="stylesheet" type="text/css" href="assets/css/ion.rangeSlider.skinFlat.css">
+    <!-- Nivo Lightbox -->
+    <link rel="stylesheet" type="text/css" href="assets/css/nivo-lightbox.css" >
+    <!-- Animate -->
+    <link rel="stylesheet" type="text/css" href="assets/css/animate.css">
+    <!-- Owl carousel -->
+    <link rel="stylesheet" type="text/css" href="assets/css/owl.carousel.css">
+    <!-- Rav Slider -->
+    <link rel="stylesheet" type="text/css" href="assets/extras/settings.css">
+    <link rel="stylesheet" type="text/css" href="assets/extras/layers.css">
+    <link rel="stylesheet" type="text/css" href="assets/extras/navigation.css">
+    <!-- Main Style -->
+    <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+    <!-- Responsive Style -->
+    <link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
+</head>
 <body>
-    <header>
-        <nav class="menu">
-            <img id="mini-logo" src="img/mini-logo.jpeg" alt="logoSAVJ">
-            <a href="/frontend/index.html">INICIO</a>
-            <a href="./login.html">PROPIETARIOS</a>
-            <a href="link">TU ESPACIO</a>
-            <a href="link">CONTACTO</a>
-            <a href="link">COLABORADORES</a>
-        </nav>
-    </header><br><br><br>
+    <!-- Header Area wrapper Starts -->
+    <header id="header-wrap">
+      <!-- Start Top Bar -->
+      <div class="top-bar">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-7 col-md-8 col-xs-12">
+              <!-- Start Contact Info -->
+              <ul class="links clearfix">
+                <li><i class="lni-phone-handset"></i>03-311-713-7084</li>
+                <li><i class="lni-envelope"></i> estatebit@savj.com</li>
+                <li><a href="#" target="_blank"><i class="lni-map-marker"></i> Medellin, Antioquia, Col</a></li>
+              </ul>
+              <!-- End Contact Info -->
+            </div>
+            <div class="col-lg-5 col-md-4 col-xs-12">
+              <div class="roof-social float-right">
+                <a class="facebook" href="#" target="_blank"><i class="lni-facebook-filled"></i></a>
+                <a class="twitter" href="#" target="_blank"><i class="lni-twitter-filled"></i></a>
+                <a class="instagram" href="#" target="_blank"><i class="lni-instagram-filled"></i></a>
+                <a class="linkedin" href="https://www.linkedin.com/in/santiago-sierra-cano/" target="_blank"><i class="lni-linkedin-filled"></i></a>
+              </div>
+              <div class="header-top-right float-right">
+                <a href="login.html" class="header-top-button"><i class="lni-lock"></i> Ingresar</a> |
+                <a href="register.html" class="header-top-button"><i class="lni-pencil"></i> Registrarse</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End Top Bar -->
+
+      <!-- Navbar Start -->
+      <nav class="navbar navbar-expand-lg navbar-light bg-white"  data-toggle="sticky-onscroll">
+        <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+              <span class="lin-menu"></span>
+            </button>
+            <a class="navbar-brand" href="index.html"><img src="assets/img/logo.png" alt=""></a>
+          </div>
+
+          <div class="collapse navbar-collapse" id="main-navbar">
+            <ul class="navbar-nav mr-auto w-100 justify-content-center">
+              <li class="nav-item dropdown ">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Inicio <i class="fa fa-angle-down"></i>
+                </a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="index.html">Inicio</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown active">
+                <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Proyectos <i class="fa fa-angle-down"></i>
+                </a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="/proyecto_luna.html active">Proyecto Luna</a>
+                  <a class="dropdown-item" href="/proyecto_orion.html">Proyecto Orion</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Galleria <i class="fa fa-angle-down"></i>
+                </a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="/gallery_orion.html">Orion</a>
+                  <a class="dropdown-item" href="/gallery_luna.html">Luna</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Blog <i class="fa fa-angle-down"></i>
+                </a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="/blog.html">Nuestro Blog</a>
+                </div>
+              </li>
+            </ul>
+            <div class="search-add float-right">
+              <form method="post">
+                <div class="form-group">
+                    <input type="search" name="field-name" value="" placeholder="Buscar aqui" required>
+                    <button type="submit" class="search-btn"><span class="lni-search"></span></button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mobile Menu Start -->
+        <ul class="mobile-menu">
+          <li>
+            <a href="index.html"> Inicio </a>
+            <ul class="dropdown">
+              <li>
+                <a href="index.html"> Inicio </a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a class="active" href="#"> Proyectos </a>
+            <ul class="dropdown">
+              <li><a href="/proyecto_luna.html" class="active">Proyecto Luna</a></li>
+              <li><a href="/proyecto_orion.html">Proyecto Orion</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Galleria</a>
+            <ul class="dropdown">
+              <li><a href="/gallery_orion.html">Orion</a></li>
+              <li><a href="/gallery_luna.html">Luna</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#">Blog</a>
+            <ul class="dropdown">
+              <li><a href="/blog.html">Nuestro Blog</a></li>
+            </ul>
+          </li>
+        </ul>
+        <!-- Mobile Menu End -->
+      </nav>
+      <!-- Navbar End -->
+      <div class="clearfix"></div>
+    </header>
     
     <main> 
         <section class="opciones"> 
@@ -286,5 +430,21 @@
         </div>
     </section>
     </main>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="assets/js/jquery-min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery.mixitup.js"></script>
+    <script src="assets/js/jquery.counterup.min.js"></script>
+    <script src="assets/js/ion.rangeSlider.js"></script>
+    <script src="assets/js/jquery.parallax.js"></script>
+    <script src="assets/js/waypoints.min.js"></script>
+    <script src="assets/js/wow.js"></script>
+    <script src="assets/js/owl.carousel.min.js"></script>
+    <script src="assets/js/jquery.slicknav.js"></script>
+    <script src="assets/js/nivo-lightbox.js"></script>
+    <script src="assets/js/jquery.slicknav.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 </html>
