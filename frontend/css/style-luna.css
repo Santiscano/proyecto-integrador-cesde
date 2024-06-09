@@ -37,7 +37,7 @@ nav a{
     height: 200px;
     display: inline-block;
     padding-left: 20px;
-    padding-top: 5%;
+    padding-top: 1%;
     justify-content: space-between;
     position: fixed;
 }
@@ -51,7 +51,7 @@ nav a{
     display: inline-block;
     padding-left: 30px;
     padding-top: 5%;
-    margin-left: 20%;   
+    margin-left: 25%;   
 }
 .contenidoPrincipal{
     display: grid;
@@ -116,7 +116,7 @@ nav a{
 
 
 body{
-    background-image: url(/frontend/img/fondo.jpg);
+    background-image: url(/img/fondo.jpg);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -245,4 +245,7 @@ i{
 .iconos3{
     display: flex;
     padding-top: 3rem;
+}
+.iconos1 p, .iconos2 p, .iconos3 p{
+    color: #000000;
 }

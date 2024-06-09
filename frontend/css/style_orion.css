@@ -185,14 +185,14 @@ h3{
     padding: 20px;
 }
 #tarjetacarrusel{
-    background-color: #ffffff98;
+    background-color: #00000098;
     text-align: center;
 }
 .flechasCarrusel a{
     text-decoration: none;
 }
 i{
-    color:  rgb(19, 19, 19);
+    color:  rgb(0, 0, 0);
 }
 .texticon{
     display: flex;
@@ -235,4 +235,7 @@ i{
 .iconos3{
     display: flex;
     padding-top: 3rem;
+}
+.iconos1 p, .iconos2 p, .iconos3 p{
+    color: #000000;
 }
