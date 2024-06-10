@@ -143,147 +143,62 @@ class CreatedController {
   }
 
 
-  static async createVenta(req: Request, res: Response) {}
-  static async createRol(req: Request, res: Response) {}
-  static async createCartera(req: Request, res: Response) {}
-  static async createCuota(req: Request, res: Response) {}
-
-  // CREATE ITEM
-  static async postCreated(req: Request, res: Response) {
-    const {  } = req.body;
-    const validate: TypeCreated = {  };
-    const data: TypeCreated = {  };
-    
+  static async createRol(req: Request, res: Response) {
+    /* #swagger.tags = ['created'] #swagger.description = 'creacion de modulos' */
+    /*  #swagger.parameters['body'] = { in: 'body', description: 'datos para crear un@ modulo', schema: { $ref: '#/definitions/created' }} */
+    const data = { ...req.body };
     try {
-      const missing = MissingData.missingData(validate);
-      if(missing.error) return res.status(resStatus.unCompleted).json(ApiResponses.uncompleted(missing.missing));
-      
-      const postData = await CreatedModel.postCreated( CreatedController.table, data );
-      const idData = postData.data.insertId
-      return postData.data
-        ? res.status(resStatus.success).json( ApiResponses.success({ idData, ...data }, postData.message ))
-        : res.status(resStatus.unCompleted).json( ApiResponses.errorMessage( postData.message ))
-        /* #swagger.responses[200] = { description: 'Response success', schema: { $ref: '#/definitions/createdRes' }} */
-        /* #swagger.responses[400] = { description: 'UnCompleted', schema: { $ref: '#/definitions/errorMessage' }} */
-        /* #swagger.responses[422] = { description: 'UnCompleted', schema: { $ref: '#/definitions/uncompleted' }} */
-    } catch (error) {
-      /* #swagger.responses[500] = { description: 'Error server', schema: { $ref: '#/definitions/unsuccessfully' }} */
-      return res.status(resStatus.serverError).json(ApiResponses.unsuccessfully( error ));
-    }
-  };
-
-  // CREATE BULK ITEMS
-  static async bulkCreated(req: Request, res: Response) {
-    /* #swagger.tags = ['created'] #swagger.description = 'crea uno o muchos created segun el body' */
-    /* #swagger.parameters['body'] = { in: 'body', description: 'datos para crear uno o muchos created', schema: { $ref: '#/definitions/created' }} */
-    const { bulkDataInsert } = req.body;
-
-    try {
-      const missing = MissingData.missingDataBulk( bulkDataInsert );
-      if(missing.error) return res.status(resStatus.unCompleted).json(ApiResponses.uncompleted( missing.missing ));
-
-      const bulkData = await CreatedModel.bulkCreated( CreatedController.table, bulkDataInsert );
-      return bulkData.data
-        ? res.status(resStatus.success).json(ApiResponses.success(bulkData.data, bulkData.message))
-        : res.status(resStatus.unCompleted).json(ApiResponses.errorMessage( bulkData.message ))
-        /* #swagger.responses[200] = { description: 'Response success', schema: { $ref: '#/definitions/bulkSuccess' }} */
-        /* #swagger.responses[400] = { description: 'UnCompleted', schema: { $ref: '#/definitions/errorMessage' }} */
-        /* #swagger.responses[422] = { description: 'UnCompleted', schema: { $ref: '#/definitions/uncompleted' }} */
-    }  catch (error) {
-      /* #swagger.responses[500] = { description: 'Error server', schema: { $ref: '#/definitions/unsuccessfully' }} */
-      return res.status(resStatus.serverError).json(ApiResponses.unsuccessfully( error ));
-    }
-  }
-
-  // Insert or Update bulk
-  static async insertOrUpdateBulkCreated(req: Request, res: Response) {
-    /* #swagger.tags = ['created'] #swagger.description = 'crea uno o muchos created segun el body' */
-    /* #swagger.parameters['body'] = { in: 'body', description: 'datos para crear o actualizar uno o muchos created', schema: { $ref: '#/definitions/created' }} */
-    const { bulkDataInsert, excludeFields } = req.body;
-
-    try {
-      const missing = MissingData.missingDataBulk( bulkDataInsert );
-      if(missing.error) return res.status(resStatus.unCompleted).json(ApiResponses.uncompleted( missing.missing ));
-      
-      const bulkData = await CreatedModel.insertOrUpdateBulkCreated( CreatedController.table, bulkDataInsert, excludeFields );
-      return bulkData.data
-        ? res.status(resStatus.success).json(ApiResponses.success(bulkData.data, bulkData.message))
-        : res.status(resStatus.unCompleted).json(ApiResponses.errorMessage( bulkData.message ))
-        /* #swagger.responses[200] = { description: 'Response success', schema: { $ref: '#/definitions/bulkSuccess' }} */
-        /* #swagger.responses[400] = { description: 'UnCompleted', schema: { $ref: '#/definitions/errorMessage' }} */
-        /* #swagger.responses[422] = { description: 'UnCompleted', schema: { $ref: '#/definitions/uncompleted' }} */
-    } catch (error) {
-      /* #swagger.responses[500] = { description: 'Error server', schema: { $ref: '#/definitions/unsuccessfully' }} */
-      return res.status(resStatus.serverError).json(ApiResponses.unsuccessfully( error ));
-    }
-
-  }
-
-  // UPDATE ITEM
-  static async putCreated(req: Request, res: Response) {
-    /* #swagger.tags = ['created'] #swagger.description = 'actualiza toda la informacion de un created segun body' */
-    /*  #swagger.parameters['id'] = { description: 'id de created a modificar' } */
-    /*  #swagger.parameters['body'] = { in: 'body', description: 'todos los datos necesarios para modificar un@ created', schema: { $ref: '#/definitions/created' }} */
-    const {  } = req.body;
-    const idcreated = req.params.id;
-    const data: TypeCreated = {  };
-    
-    try {
-      const missing = MissingData.missingData({...data, idcreated });
+      const missing = MissingData.missingData(data);
       if(missing.error) return res.status(resStatus.unCompleted).json(ApiResponses.uncompleted(missing.missing));
 
-      const putData = await CreatedModel.putCreated( CreatedController.table, CreatedController.pktable, data, idcreated );
-      return putData.data
-        ? res.status(resStatus.success).json(ApiResponses.success( putData.data, putData.message ))
-        : res.status(resStatus.unCompleted).json(ApiResponses.errorMessage( putData.message ))
-        /* #swagger.responses[200] = { description: 'Response success', schema: { $ref: '#/definitions/createdRes' }} */
-        /* #swagger.responses[400] = { description: 'UnCompleted', schema: { $ref: '#/definitions/errorMessage' }} */
-        /* #swagger.responses[422] = { description: 'UnCompleted', schema: { $ref: '#/definitions/errorMessage' }} */
-    } catch (error) {
-      /* #swagger.responses[500] = { description: 'Error server', schema: { $ref: '#/definitions/unsuccessfully' }} */
-      return res.status(resStatus.serverError).json(ApiResponses.unsuccessfully( error ));
-    }
-  };
-
-  // UPDATE ITEM
-  static async patchCreated(req: Request, res: Response) {
-    /* #swagger.tags = ['created'] #swagger.description = 'actualiza la informacion de un created segun lo que reciba en el body' */
-    /*  #swagger.parameters['id'] = { description: 'id de created a modificar' } */
-    /*  #swagger.parameters['body'] = { in: 'body', description: 'todos los datos posibles para modificar un@ created', schema: { $ref: '#/definitions/created' }} */
-    const {  } = req.body;
-    const idcreated = req.params.id;
-    const data = MissingData.notEmptyToObjet({  });
-
-    try {
-      const missing = MissingData.missingData({ idcreated });
-      if(missing.error) return res.status(resStatus.unCompleted).json(ApiResponses.uncompleted(missing.missing));
-
-      const patchData = await CreatedModel.patchCreated( CreatedController.table, CreatedController.pktable, data, idcreated );
-      return patchData.data
-        ? res.status(resStatus.success).json(ApiResponses.success( patchData.data, patchData.message ))
-        : res.status(resStatus.unCompleted).json(ApiResponses.errorMessage( patchData.message ))
-        /* #swagger.responses[200] = { description: 'Response success', schema: { $ref: '#/definitions/createdRes' }} */
-        /* #swagger.responses[400] = { description: 'UnCompleted', schema: { $ref: '#/definitions/errorMessage' }} */
-        /* #swagger.responses[422] = { description: 'UnCompleted', schema: { $ref: '#/definitions/errorMessage' }} */
-    } catch (error) {
-      /* #swagger.responses[500] = { description: 'Error server', schema: { $ref: '#/definitions/unsuccessfully' }} */
-      return res.status(resStatus.serverError).json(ApiResponses.unsuccessfully( error ));
-    }
-  };
-
-  // DELETE ITEM
-  static async deleteCreated(req: Request, res: Response) {
-    /* #swagger.tags = ['created'] #swagger.description = 'elimina el/la created con el id que llega por parametros' */
-    /*  #swagger.parameters['id'] = { description: 'id de created a eliminar' } */
-    try {
-      const dataById = await CreatedModel.deleteCreated( CreatedController.table, CreatedController.pktable, req.params.id );
+      const newRol = await CreatedModel.createRol( data );
+      return newRol.data
+        ? res.status(resStatus.success).json(ApiResponses.success( newRol.data, newRol.message ))
+        : res.status(resStatus.unCompleted).json(ApiResponses.errorMessage( newRol.message ))
       /* #swagger.responses[200] = { description: 'Response success', schema: { $ref: '#/definitions/createdRes' }} */
-      return res.status(resStatus.success).json(ApiResponses.success( null, dataById.message ))
+      /* #swagger.responses[400] = { description: 'UnCompleted', schema: { $ref: '#/definitions/errorMessage' }} */
+      /* #swagger.responses[422] = { description: 'UnCompleted', schema: { $ref: '#/definitions/uncompleted' }} */
     } catch (error) {
       /* #swagger.responses[500] = { description: 'Error server', schema: { $ref: '#/definitions/unsuccessfully' }} */
       return res.status(resStatus.serverError).json(ApiResponses.unsuccessfully( error ));
     }
-  };
+  }
+
+  static async getCarteras(req: Request, res: Response) {
+    /* #swagger.tags = ['created'] #swagger.description = 'creacion de modulos' */
+    /*  #swagger.parameters['body'] = { in: 'body', description: 'datos para crear un@ modulo', schema: { $ref: '#/definitions/created' }} */
+    try {
+      const newCarteras = await CreatedModel.getCarteras();
+      return newCarteras.data
+        ? res.status(resStatus.success).json(ApiResponses.success( newCarteras.data, newCarteras.message ))
+        : res.status(resStatus.unCompleted).json(ApiResponses.errorMessage( newCarteras.message ))
+      /* #swagger.responses[200] = { description: 'Response success', schema: { $ref: '#/definitions/createdRes' }} */
+      /* #swagger.responses[400] = { description: 'UnCompleted', schema: { $ref: '#/definitions/errorMessage' }} */
+      /* #swagger.responses[422] = { description: 'UnCompleted', schema: { $ref: '#/definitions/uncompleted' }} */
+    } catch (error) {
+      /* #swagger.responses[500] = { description: 'Error server', schema: { $ref: '#/definitions/unsuccessfully' }} */
+      return res.status(resStatus.serverError).json(ApiResponses.unsuccessfully( error ));
+    }
+  }
+  static async createCuota(req: Request, res: Response) {
+    /* #swagger.tags = ['created'] #swagger.description = 'creacion de modulos' */
+    /*  #swagger.parameters['body'] = { in: 'body', description: 'datos para crear un@ modulo', schema: { $ref: '#/definitions/created' }} */
+    try {
+      const data = { ...req.body };
+      const missing = MissingData.missingData(data);
+      if(missing.error) return res.status(resStatus.unCompleted).json(ApiResponses.uncompleted(missing.missing));
+
+      const newCuota = await CreatedModel.createCuota( data );
+      return newCuota.data
+        ? res.status(resStatus.success).json(ApiResponses.success( newCuota.data, newCuota.message ))
+        : res.status(resStatus.unCompleted).json(ApiResponses.errorMessage( newCuota.message ))
+      /* #swagger.responses[200] = { description: 'Response success', schema: { $ref: '#/definitions/createdRes' }} */
+      /* #swagger.responses[400] = { description: 'UnCompleted', schema: { $ref: '#/definitions/errorMessage' }} */
+      /* #swagger.responses[422] = { description: 'UnCompleted', schema: { $ref: '#/definitions/uncompleted' }} */
+    } catch (error) {
+      return res.status(resStatus.serverError).json(ApiResponses.unsuccessfully( error ));
+    }
+  }
 }
 
 export default CreatedController;

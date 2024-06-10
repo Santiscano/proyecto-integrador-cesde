@@ -14,11 +14,12 @@ route.post( "/tracking", CreatedController.createTracking );
 
 route.get( "/users", CreatedController.getUsers );
 
-route.get( "/apartamento", CreatedController.createApartament );
+route.post( "/apartamento", CreatedController.createApartament );
 
-route.get( "/venta", CreatedController.createVenta );
-route.get( "/rol", CreatedController.createRol );
-route.get( "/cartera", CreatedController.createCartera );
-route.get( "/cuota", CreatedController.createCuota );
+route.post( "/rol", CreatedController.createRol );
+
+route.get( "/carteras", CreatedController.getCarteras );
+
+route.post( "/cuota", CreatedController.createCuota );
 
 export default route;
