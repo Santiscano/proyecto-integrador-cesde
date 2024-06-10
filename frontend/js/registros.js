@@ -24,6 +24,7 @@ const URL_API = "http://localhost:4500/api/v1/created";
 const TOAST = document.getElementById("liveToast");
 const toastBootstrap = bootstrap.Toast.getOrCreateInstance(TOAST);
 const TOAST_ERROR = document.getElementById("liveToastError");
+const toasErrorMsg = document.getElementById("toast-error-msg");
 const toastBootstrapError = bootstrap.Toast.getOrCreateInstance(TOAST_ERROR);
 // *========================== API'S ====================== //
 
@@ -33,8 +34,9 @@ const BUSINESS_NAME = document.getElementById("razon-social");
 const NIT = document.getElementById("nit");
 const BTN_CREATE_CONSTRUCTOR = document.getElementById("create-constructora");
 
-function viewToast(error) {
+function viewToast(error, message = "Ocurrio un error.") {
   if (error) {
+    toasErrorMsg.textContent = message;
     toastBootstrapError.show();
   } else {
     toastBootstrap.show();
@@ -65,7 +67,7 @@ function sendNewConstructora() {
     })
     .catch((err) => {
       console.error(err);
-      toastBootstrapError.show();
+      viewToast(true);
     })
     .finally(() => {
       BTN_CREATE_CONSTRUCTOR.disabled = false;
@@ -123,7 +125,7 @@ function sendNewProject() {
     })
     .catch((err) => {
       console.error(err);
-      toastBootstrapError.show();
+      viewToast(true);
     })
     .finally(() => {
       BTN_CREATE_PROJECT.disabled = false;
@@ -161,26 +163,23 @@ function sendNewTracking() {
   BTN_CREATE_TRACKING.classList.replace("btn-primary", "btn-secondary");
   BTN_CREATE_TRACKING.textContent = "Enviando...";
 
-  const data = {
-    ID_PROYECTO: GET_PROJECT_TRACK.value,
-    IMAGEN_TRACKING: IMAGE_TRACKING.value,
-    OBSERVACION_TRACKING: OBSERVATION.value,
-  };
+  const formData = new FormData();
+  formData.append("ID_PROYECTO", GET_PROJECT_TRACK.value);
+  formData.append("file", IMAGE_TRACKING.files[0]);
+  formData.append("OBSERVACION_TRACKING", OBSERVATION.value);
 
   fetch(`${URL_API}/tracking`, {
     method: "POST",
-    body: JSON.stringify(data),
-    headers: {
-      "Content-Type": "application/json",
-    },
+    body: formData,
   })
     .then((res) => res.json())
     .then((data) => {
+      console.log('data: ', data);
       viewToast(data.error);
     })
     .catch((err) => {
       console.error(err);
-      toastBootstrapError.show();
+      viewToast(true);
     })
     .finally(() => {
       BTN_CREATE_TRACKING.disabled = false;
@@ -194,6 +193,7 @@ BTN_CREATE_TRACKING.addEventListener("click", sendNewTracking);
 // *========================== Apartamento ====================== //
 const GET_COMPRADOR = document.getElementById("get-comprador");
 const GET_PROYECTO_APART = document.getElementById("get-proyecto-apartamento");
+const NUMBER_APARTAMENT = document.getElementById("numero-apartamento");
 const TAMANO = document.getElementById("tamaño");
 const PISO = document.getElementById("piso");
 const TIPO_APARTAMENTO = document.getElementById("type-apartament");
@@ -241,6 +241,7 @@ function sendNewApartament() {
     ID_COMPRADOR: GET_COMPRADOR.value,
     ID_PROYECTO: GET_PROYECTO_APART.value,
     ID_ASESOR: new URLSearchParams(window.location.search).get("id"),
+    NUMERO_APARTAMENTO: `${NUMBER_APARTAMENT.value}-${GET_PROYECTO_APART.value}`,
     METRAJE_APARTAMENTO: TAMANO.value,
     PISO_APARTAMENTO: PISO.value,
     TIPO_APARTAMENTO: TIPO_APARTAMENTO.value,
@@ -258,12 +259,19 @@ function sendNewApartament() {
   })
     .then((res) => res.json())
     .then((data) => {
-      console.log('data: ', data);
-      viewToast(data.error);
+      if (data.error) {
+        if (data.typeError.message.includes("Duplicate entry")) {
+          console.log('duplicate entry');
+          viewToast(true, "El apartamento ya existe.");
+        }
+      } else {
+        viewToast(false);
+        console.log('sucess');
+      }
     })
     .catch((err) => {
       console.error(err);
-      toastBootstrapError.show();
+      viewToast(true);
     })
     .finally(() => {
       BTN_CREATE_APARTAMENT.disabled = false;
@@ -302,7 +310,7 @@ function sendNewRol() {
     })
     .catch((err) => {
       console.error(err);
-      toastBootstrapError.show();
+      viewToast(true);
     })
     .finally(() => {
       BTN_CREATE_ROL.disabled = false;
@@ -363,7 +371,7 @@ function sendAbono() {
     })
     .catch((err) => {
       console.error(err);
-      toastBootstrapError.show();
+      viewToast(true);
     })
     .finally(() => {
       BTN_CREATE_SHARE.disabled = false;
