@@ -13,12 +13,12 @@ document.addEventListener("DOMContentLoaded", () => {
   fetch(`http://localhost:4500/api/v1/apartaments/${iduser}`)
     .then((res) => res.json())
     .then(({ data }) => {
-      console.log('data: ', data);
+      console.log('data apartaments: ', data);
       const row = document.getElementById("row-proyects");
       
       data.data.forEach((proyect) => {
         const col = document.createElement("div");
-        col.classList.add("col-sm-6", "mt-3");
+        col.classList.add("col-md-12", "mt-3");
 
         const card = document.createElement("div");
         card.classList.add("card");
@@ -42,6 +42,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const valor = document.createElement("p");
         valor.innerHTML = `<strong>PRECIO:</strong> $${formatNumberAsCurrency(Number(proyect.PRECIO_APARTAMENTO))}`;
 
+        const abonado = document.createElement("p");
+        abonado.innerHTML = `<strong>ABONADO:</strong> $${formatNumberAsCurrency(Number(proyect.ABONO_ACTUAL))}`;
+
         const tipo = document.createElement("p");
         tipo.innerHTML = `<strong>TIPO DE APARTAMENTO:</strong> ${proyect.TIPO_APARTAMENTO}`;
 
@@ -57,6 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
         cardBody.appendChild(metraje);
         cardBody.appendChild(piso);
         cardBody.appendChild(valor);
+        cardBody.appendChild(abonado);
         cardBody.appendChild(tipo);
         cardBody.appendChild(button);
 

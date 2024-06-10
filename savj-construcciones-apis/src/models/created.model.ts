@@ -140,11 +140,13 @@ class CreatedModel {
     // *=============================* Crear cartera *=============================*
     const [Cartera] = await connection.query(
       `INSERT INTO CARTERA
-        (ID_USUARIO, PRECIO_TOTAL, ABONO_ACTUAL, CUOTAS_ACORDADAS)
+        (ID_USUARIO, ID_APARTAMENTO, PRECIO_TOTAL, ABONO_ACTUAL, CUOTAS_ACORDADAS)
       VALUES
-        (?, ?, ?, ?)`,
+        (?, ?, ?, ?, ?)`,
       [
         data.ID_COMPRADOR,
+        // @ts-ignore
+        Apartamentos.insertId,
         data.PRECIO_APARTAMENTO,
         data.ABONO_ACTUAL,
         data.CUOTAS_ACORDADAS,

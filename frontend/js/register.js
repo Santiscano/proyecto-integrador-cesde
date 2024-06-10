@@ -32,8 +32,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   roles.appendChild(label);
 });
 
-document.querySelector("form").addEventListener("submit", async (e) => {
-  e.preventDefault();
+document.querySelector("form").addEventListener("submit", async (event) => {
+  event.preventDefault();
   
   // Get the values from the input fields
   var fullname = document.getElementById("fullname").value;
