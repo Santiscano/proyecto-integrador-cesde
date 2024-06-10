@@ -2,45 +2,6 @@
   padding: 0;
   margin: 0;
 }
-#mini-logo {
-  width: 92px;
-  height: 64px;
-}
-/* *===================  headers ===============* */
-/* .top-bar {
-  background: #0dcdbd;
-}
-
-.top-bar .links li {
-  display: inline-block;
-  line-height: 42px;
-  color: #fff;
-  margin-right: 15px;
-  font-size: 14px;
-}
-
-.top-bar .links li a {
-  display: block;
-  margin-right: 15px;
-  color: #fff;
-  line-height: 32px;
-}
-
-.top-bar .links li i {
-  font-size: 14px;
-  color: #fff;
-  padding-right: 5px;
-  vertical-align: middle;
-} */
-
-/* *===================  main ===============* */
-/* *===================  cards ===============* */
-
-
-
-
-
-
 
 nav a {
   padding-top: 20px;
@@ -161,15 +122,6 @@ form {
 }
 .form-control:focus {
   border: 1px solid #2d6aad;
-}
-select {
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  cursor: pointer;
-  padding-left: 20px;
-}
-select option[value=""][disabled] {
-  display: none;
 }
 button {
   border: none;
@@ -316,20 +268,4 @@ body {
 }
 .ubicacion {
   border: 500px;
-=======
-
-body{
-    background-image: url(/frontend/img/fondo.jpg);
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    background-attachment: fixed;
 }
-.logotipo{
-    height: 150px;
-    width: 100%;
-    padding: 3rem 5rem 5rem 20rem;
-    background-color: #414040;
-    color: aliceblue;
-    font-size: 30px;
-
