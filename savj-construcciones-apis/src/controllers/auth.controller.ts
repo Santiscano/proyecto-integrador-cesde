@@ -29,7 +29,7 @@ class AuthController {
       
       return res
         .status(resStatus.success)
-        .json( ...signupRes )
+        .json(ApiResponses.success(signupRes.data))
     } catch (error){
       console.log('error: ', error);
       return res
@@ -52,7 +52,8 @@ class AuthController {
         ? res.status(resStatus.success).json(ApiResponses.success(signRes.data))
         : res.status(resStatus.unauthorized)
 
-      res.status(resStatus.success).json({...signRes});
+      return res.status(resStatus.success)
+        .json({...signRes});
     } catch (error) {
       console.log('error: ', error);
     }
