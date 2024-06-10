@@ -1,0 +1,52 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+#mini-logo{
+    width: 92px;
+    height: 64px;
+}
+nav a{
+   padding-top: 20px; 
+}
+.menu{
+    font-family: muli-bold;
+    font-weight: bold;
+    text-align: center;
+    background-color: #414040;
+    height: 64px;
+    display: flex;
+    justify-content: space-between;
+    border-width: 2px;
+    border-style: solid;
+    border-color: #000000;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+.menu a{
+    font-size: 17px;
+    color: rgb(255, 253, 253);
+}
+.menu a:hover{
+    text-decoration: none;
+}
+.somos{
+    background-color: #dee2e66b;
+    padding: 15px 15px 15px 15px;
+}
+.somos p{
+    font-family: muli-bold;
+    font-style: normal;
+    font-size: 20px;
+    color: #000000;
+}
+.contenidouno{
+    width: 65%;
+    height: auto;
+    display: inline-block;
+    padding-left: 30px;
+    padding-top: 5%;
+    margin-left: 20%;   
+}
+

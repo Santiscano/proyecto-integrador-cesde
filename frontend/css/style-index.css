@@ -316,4 +316,20 @@ body {
 }
 .ubicacion {
   border: 500px;
+=======
+
+body{
+    background-image: url(/frontend/img/fondo.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
 }
+.logotipo{
+    height: 150px;
+    width: 100%;
+    padding: 3rem 5rem 5rem 20rem;
+    background-color: #414040;
+    color: aliceblue;
+    font-size: 30px;
+
