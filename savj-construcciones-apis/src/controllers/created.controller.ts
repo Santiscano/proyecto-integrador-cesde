@@ -6,6 +6,7 @@ import ApiResponses from "../helpers/apiResponse";
 import MissingData from "../helpers/missingData";
 
 import { TypeCreated } from '../interfaces/created';
+import FileMethods from "../helpers/files";
 
 class CreatedController {
   static table: string = "";
@@ -45,9 +46,6 @@ class CreatedController {
       return res.status(resStatus.serverError).json(ApiResponses.unsuccessfully( error ));
     }
   }
-
-
-
   static async getProyectos(req: Request, res: Response) {
     try {
       const proyects = await CreatedModel.getProyectos();
@@ -87,7 +85,18 @@ class CreatedController {
   static async createTracking(req: Request, res: Response) {
     /* #swagger.tags = ['created'] #swagger.description = 'creacion de modulos' */
     /*  #swagger.parameters['body'] = { in: 'body', description: 'datos para crear un@ modulo', schema: { $ref: '#/definitions/created' }} */
-    const data = { ...req.body };
+    const valuesFiles = req.files;
+    const pathFile = `/tracking-project-${req.body.ID_PROYECTO} `;
+    const files = await FileMethods.UpFiles(valuesFiles, pathFile); // ? dejar una copia en el servidor
+
+    // @ts-ignore
+    const base64Image = req.files[0].buffer.toString('base64');
+    // @ts-ignore
+    const mimetype = req.files[0].mimetype;
+    const base64ImageString = `data:${mimetype};base64,${base64Image}`;
+    
+    const data = { ...req.body, image: base64ImageString };
+    
     try {
       const missing = MissingData.missingData(data);
       if(missing.error) return res.status(resStatus.unCompleted).json(ApiResponses.uncompleted(missing.missing));

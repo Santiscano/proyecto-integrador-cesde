@@ -1,7 +1,6 @@
 import fs from "fs";
 import path from "path";
 
-
 class FileMethods {
 
   /**
@@ -31,7 +30,7 @@ class FileMethods {
       
       let documents = Object.keys(files).map(element => {
         const fileKey: string = files[element].fieldname;
-        const now = dateMethods.generateDateNowISO();
+        const now = new Date().toISOString().replace(/:/g, "-");
         const fileName: string = `${now}-${files[element].originalname.replace(/ /g, "_")}`;
         const filePath:string = path.join(storageFolder, fileName);
         fs.writeFileSync(filePath, files[element].buffer);

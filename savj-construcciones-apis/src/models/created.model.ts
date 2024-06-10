@@ -75,7 +75,7 @@ class CreatedModel {
         (ID_PROYECTO, IMAGEN_TRACKING, OBSERVACION_TRACKING)
       VALUES 
         (?, ?, ?)`,
-      [data.ID_PROYECTO, data.IMAGEN_TRACKING, data.OBSERVACION_TRACKING]
+      [data.ID_PROYECTO, data.image, data.OBSERVACION_TRACKING]
     );
 
     // @ts-ignore
@@ -101,12 +101,13 @@ class CreatedModel {
     // *=============================* Crear apartamento *=============================*
     const [Apartamentos] = await connection.query(
       `INSERT INTO APARTAMENTOS
-        (ID_COMPRADOR, ID_PROYECTO, METRAJE_APARTAMENTO, PISO_APARTAMENTO, TIPO_APARTAMENTO, PRECIO_APARTAMENTO)
+        (ID_COMPRADOR, ID_PROYECTO, NUMERO_APARTAMENTO, METRAJE_APARTAMENTO, PISO_APARTAMENTO, TIPO_APARTAMENTO, PRECIO_APARTAMENTO)
       VALUES 
-        (?, ?, ?, ?, ?, ?)`,
+        (?, ?, ?, ?, ?, ?, ?)`,
       [
         data.ID_COMPRADOR,
         data.ID_PROYECTO,
+        data.NUMERO_APARTAMENTO,
         data.METRAJE_APARTAMENTO,
         data.PISO_APARTAMENTO,
         data.TIPO_APARTAMENTO,
