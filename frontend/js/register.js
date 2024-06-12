@@ -18,16 +18,20 @@ document.addEventListener("DOMContentLoaded", async () => {
   select.appendChild(optionDefault);
 
   await fetch("http://localhost:4500/api/v1/roles")
-    .then((response) => response.json())
-    .then(({ data }) => {
-      data.forEach((role) => {
+    .then((response) => {
+      console.log('response: ', response);
+      return response.json()
+    })
+    .then((data) => {
+      console.log('data: ', data);
+      data.data.forEach((role) => {
         const option = document.createElement("option");
         option.setAttribute("value", role.ID_ROLES);
         option.innerText = role.NOMBRE_ROL;
         select.appendChild(option);
       });
       roles.appendChild(select);
-    });
+    })
 
   roles.appendChild(label);
 });
